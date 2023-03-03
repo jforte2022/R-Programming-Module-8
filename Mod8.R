@@ -1,0 +1,10 @@
+# install.packages("pryr")
+# install.packages("plyr")
+require(pryr)
+require(ISLR)
+require(boot)
+library(data.table)
+library(plyr)
+
+data <- read.table("Dataset.txt", header = TRUE, sep = ",")
+studentAverage <- ddply(data, "Sex", transform, Grade.Average = mean(Grade))
